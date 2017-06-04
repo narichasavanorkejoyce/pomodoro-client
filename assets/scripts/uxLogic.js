@@ -1,5 +1,6 @@
 const LandingPageHB = require('./templates/landing-page.handlebars')
 const HomePageHB = require('./templates/home-page.handlebars')
+const SignOutHB = require('./templates/sign-out-view.handlebars')
 
 const showLandingPage = function () {
   $('.body-content').empty()
@@ -11,13 +12,13 @@ const showHomePage = function () {
   $('.body-content').append(HomePageHB())
 }
 
-  // Sign Out
-  $('#sign-out-option').on('click', function () {
-    $('#sign-out-modal').modal({ show: true })
-  })
+const showSignOut = function () {
+  $('.body-content').empty()
+  $('.body-content').append(SignOutHB)
 }
 
 module.exports = {
   showLandingPage,
   showHomePage,
+  showSignOut
 }

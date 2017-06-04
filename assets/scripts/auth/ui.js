@@ -41,9 +41,6 @@ const changePasswordFail = () => {
 
 const signOutSuccess = () => {
   store.user = null
-  $('#sign-out-modal').modal({ show: false })
-  $('#home-page').hide()
-  $('#landing-page').show()
   // console.log(store)
 }
 

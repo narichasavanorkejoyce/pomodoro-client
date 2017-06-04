@@ -18,6 +18,12 @@ const onShowHomePage = function () {
   $('#change-pwd-option').on('click', onShowChangePassword)
 }
 
+// RENDERING SMALLER VIEWS
+const onShowSignOut = function () {
+  uxLogic.showSignOut()
+  $('#sign-out').on('submit', onSignOut)
+}
+
 const onShowChangePassword = function () {
   $('#password-modal').modal({ show: true })
   $('.pass-success-message').hide()
@@ -47,8 +53,9 @@ const onSignOut = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signOut(data)
-  .done(ui.signOutSuccess)
-  .fail(ui.signOutFail)
+  .then(ui.signOutSuccess)
+  .then(onShowLandingPage)
+  .catch(ui.signOutFail)
 }
 
 const onChangePassword = function (event) {
