@@ -1,25 +1,75 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags unless you know what you are doing -->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Pomodoro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags unless you know what you are doing -->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
-    </body>
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid body-content">
+
+  <!-- NAV BAR -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+         <span class="sr-only">Toggle Navigation</span>
+         <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+       </button>
+      <p class="navbar-brand">Pomodoro Timer</p>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height:1px;">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active">
+          <a href="#" id="change-pwd-option">Change Password</a>
+        </li>
+        <li class="active">
+          <a href="#" id="sign-out-option">Sign Out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- SIGN UP FORM -->
+  <div class="jumbotron" id="sign-up-jumbotron">
+    <h1 class="big-headers">Pomodoro Timer</h1>
+    <form id="sign-up" class="auth-login-form">
+      <fieldset>
+        <div class="input-group center-block">
+          <input type="text" name="credentials[email]" value="" placeholder="email" id="sign-up-email" class="form-control" required>
+          <input type="password" name="credentials[password]" value="" placeholder="password" id="sign-up-password" class="form-control" required>
+          <input type="password" name="credentials[password_confirmation]" value="" placeholder="confirm password" id="sign-up-confirm" class="form-control" required>
+          <input type="submit" name="submit" value="Sign Up!" class="btn btn-primary btn-md" id="sign-up-button">
+        </div>
+
+        <div class="auth-responses" id="sign-up-response">&nbsp;</div>
+      </fieldset>
+    </form>
+  </div>
+
+  <!-- SIGN IN FORM -->
+  <div class="jumbotron" id="sign-in-jumbotron">
+    <form id="sign-in" class="auth-login-form">
+      <fieldset>
+        <div class="input-group center-block">
+          <input type="text" name="credentials[email]" value="" placeholder="email" id="sign-in-email" class="form-control" required>
+          <input type="password" name="credentials[password]" value="" placeholder="password" id="sign-in-password" class="form-control" required>
+          <input type="submit" name="submit" value="Sign In!" class="btn btn-primary btn-md" id="sign-in-button">
+        </div>
+
+        <div class="auth-responses" id="sign-in-response">&nbsp;</div>
+      </fieldset>
+    </form>
+  </div>
+
+</body>
+
 </html>
