@@ -1,11 +1,9 @@
-const uxLogicHandlers = () => {
-  // LAUNCH PAGE
-  $('#home-page').hide()
+const LandingPageHB = require('./templates/landing-page.handlebars')
 
-  // HOME PAGE
-
-  // Default hidden elements
-  // $('#sign-out-jumbotron').hide()
+const showLandingPage = function () {
+  $('.body-content').empty()
+  $('.body-content').append(LandingPageHB())
+}
 
   // Change Password
   $('#change-pwd-option').on('click', function () {
@@ -21,5 +19,5 @@ const uxLogicHandlers = () => {
 }
 
 module.exports = {
-  uxLogicHandlers
+  showLandingPage,
 }

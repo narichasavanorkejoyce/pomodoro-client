@@ -9,16 +9,15 @@ const successSignUp = (data) => {
 
 const failureSignUp = () => {
   // console.error(error)
-  $('#sign-up-response').text('User already exists. Please sign in.')
+  $('#sign-up-response').text('Sorry, there was a problem. Please try again.')
 }
 
 const signInSuccess = (data) => {
   store.user = data.user
   // console.log(store)
   // $('#sign-in-response').text('Success! User has signed in.')
-  $('#landing-page').hide()
-  $('#home-page').show()
   $('#sign-in')[0].reset()
+  return
 }
 
 const signInFail = () => {
