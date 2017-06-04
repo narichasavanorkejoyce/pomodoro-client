@@ -1,16 +1,15 @@
 const LandingPageHB = require('./templates/landing-page.handlebars')
+const HomePageHB = require('./templates/home-page.handlebars')
 
 const showLandingPage = function () {
   $('.body-content').empty()
   $('.body-content').append(LandingPageHB())
 }
 
-  // Change Password
-  $('#change-pwd-option').on('click', function () {
-    $('#password-modal').modal({ show: true })
-    $('.pass-success-message').hide()
-    $('.old-password-mismatch-message').hide()
-  })
+const showHomePage = function () {
+  $('.body-content').empty()
+  $('.body-content').append(HomePageHB())
+}
 
   // Sign Out
   $('#sign-out-option').on('click', function () {
@@ -20,4 +19,5 @@ const showLandingPage = function () {
 
 module.exports = {
   showLandingPage,
+  showHomePage,
 }
