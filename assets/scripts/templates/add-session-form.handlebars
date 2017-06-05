@@ -1,0 +1,32 @@
+<form id="add-session">
+  <fieldset>
+    <div id="add-session-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h3><strong>New Session</strong></h3>
+          </div>
+
+          <div class="modal-body form-horizontal">
+            <div class="control-group">
+              <label for="session_title" class="control-label">Session Name</label>
+              <div class="controls">
+                <input type="text" name="session[session_name]" required>
+              </div>
+              <div class="controls">
+                <input type="hidden" name="session[n_pomodoro]" value="0" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn cancel-add-session" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            <button type="submit" class="btn btn-primary">Add Session</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>

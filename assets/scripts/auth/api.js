@@ -57,10 +57,24 @@ const getSessions = function () {
   })
 }
 
+const addSession = function (data) {
+  console.log('addSession ran')
+  console.log('data is', data)
+  return $.ajax({
+    url: config.apiOrigin + '/sessions',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
-  getSessions
+  getSessions,
+  addSession,
 }
