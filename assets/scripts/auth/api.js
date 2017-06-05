@@ -70,6 +70,16 @@ const addSession = function (data) {
   })
 }
 
+const deleteSesh = function (id) {
+  return $.ajax({
+    url: config.apiOrigin + '/sessions/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -77,4 +87,5 @@ module.exports = {
   changePassword,
   getSessions,
   addSession,
+  deleteSesh
 }

@@ -19,6 +19,10 @@ const onShowHomePage = function (data) {
   $('#add-session-option').on('click', onShowAddSession)
   $('#sign-out-option').on('click', onShowSignOut)
   $('#change-pwd-option').on('click', onShowChangePassword)
+  // Session Table
+  $('.remove-session').on('click', deleteSession)
+}
+
 // RENDER SMALLER VIEWS
 const onShowAddSession = function () {
   $('#add-session-modal').modal({ show: true })
@@ -105,6 +109,13 @@ const cancelNewSession = function () {
   onGetSessions()
 }
 
+const deleteSession = function () {
+  console.log('deleteSession ran')
+  const id = $(this).attr('data-id')
+  console.log('session id is', id)
+  api.deleteSesh(id)
+    .then(onGetSessions)
+    .catch(ui.deleteSessionFail)
 }
 
 module.exports = {
