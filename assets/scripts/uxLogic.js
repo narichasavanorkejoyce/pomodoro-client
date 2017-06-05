@@ -7,9 +7,14 @@ const showLandingPage = function () {
   $('.body-content').append(LandingPageHB())
 }
 
-const showHomePage = function () {
+const showHomePage = function (data) {
+  console.log('showHomePage ran')
   $('.body-content').empty()
-  $('.body-content').append(HomePageHB())
+  $('.body-content').append(HomePageHB(
+    {
+      sessions: data.sessions
+    }
+  ))
 }
 
 const showSignOut = function () {

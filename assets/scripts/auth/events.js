@@ -31,7 +31,7 @@ const onShowChangePassword = function () {
   $('#change-password').on('submit', onChangePassword)
 }
 
-// AJAX CALLS
+// API CALLS - USER AUTHENTICATION
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -45,7 +45,8 @@ const onSignIn = function (event) {
   const data = getFormFields(event.target)
   api.signIn(data)
   .then(ui.signInSuccess)
-  .then(onShowHomePage)
+  // .then(onShowHomePage)
+  .then(onGetSessions)
   .catch(ui.signInFail)
 }
 
@@ -64,6 +65,21 @@ const onChangePassword = function (event) {
   api.changePassword(data)
   .then(ui.changePasswordSuccess)
   .catch(ui.changePasswordFail)
+}
+
+// API CALLS - POMODORO TIMER
+const onGetSessions = function (event) {
+  console.log('onGetSessions ran')
+  // event.preventDefault()
+  api.getSessions()
+    .then(data => {
+      onShowHomePage(data)
+    })
+    .catch(ui.getSessionsFail)
+}
+
+const addNewSession = function (event) {
+  console.log('addNewSession ran')
 }
 
 module.exports = {
