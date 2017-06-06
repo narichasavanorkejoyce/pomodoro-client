@@ -48,7 +48,9 @@ const onShowChangePassword = function () {
 
 const onShowTimer = function () {
   $('#timer-modal').modal({ show: true })
-  timer.timerHandlers()
+  timer.startHandlers()
+  timer.stopHandlers()
+  timer.resetHandlers()
   $('.cancel-timer').on('click', cancelTimer)
 }
 

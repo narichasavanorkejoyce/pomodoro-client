@@ -1,12 +1,14 @@
 let timer = null
 let duration = 1500
+let minutes
 
 function tick () {
+  console.log('tick ran')
   // Decrease duration by increment of 1
-  const time = --duration
-  // Format time into minutes and seconds
-  const minutes = parseInt(time / 60, 10)
-  let seconds = parseInt(time % 60, 10)
+  --duration
+  // Format duration into minutes and seconds
+  minutes = parseInt(duration / 60, 10)
+  let seconds = parseInt(duration % 60, 10)
   seconds = seconds < 10 ? '0' + seconds : seconds
   document.getElementById('input').innerHTML = (minutes + ':' + seconds)
   if (duration <= 0) {
@@ -15,43 +17,74 @@ function tick () {
 }
 
 function start () {
-  tick()
-  timer = setTimeout(start, 1000)
+  timer = setInterval(tick, 1000)
 }
 
 function stop () {
-  clearTimeout(timer)
+  clearInterval(timer)
 }
 
 function reset () {
   document.getElementById('input').innerHTML = '25:00'
-  clearTimeout(timer)
+  clearInterval(timer)
   duration = 1500
   timer = null
 }
 
-const timerHandlers = function () {
-  $('.start-timer').on('click', function () {
+const startHandlers = function () {
+  $('#start-timer').on('click', function () {
     start()
-    // $('.start-timer').off()
-    // $('.stop-timer').on()
-    // $('.reset-timer').on()
+    $('#start-timer').off()
+
+    $('#stop-timer').on('click', function () {
+      stop()
+      $('#stop-timer').off()
+    })
+
+    $('#reset-timer').on('click', function () {
+      reset()
+      $('#reset-timer').off()
+    })
   })
-  $('.stop-timer').on('click', function () {
+}
+
+const stopHandlers = function () {
+  $('#stop-timer').on('click', function () {
     stop()
-    // $('.start-timer').on()
-    // $('.stop-timer').off()
-    // $('.reset-timer').on()
+    $('#stop-timer').off()
+
+    $('#start-timer').on('click', function () {
+      start()
+      $('#start-timer').off()
+    })
+
+    $('#reset-timer').on('click', function () {
+      reset()
+      $('#reset-timer').off()
+    })
   })
-  $('.reset-timer').on('click', function () {
+}
+
+const resetHandlers = function () {
+  $('#reset-timer').on('click', function () {
     reset()
-    // $('.start-timer').on()
-    // $('.stop-timer').on()
-    // $('.reset-timer').off()
+    $('#reset-timer').off()
+
+    $('#start-timer').on('click', function () {
+      start()
+      $('#start-timer').off()
+    })
+
+    $('#stop-timer').on('click', function () {
+      stop()
+      $('#stop-timer').off()
+    })
   })
 }
 
 module.exports = {
-  timerHandlers,
+  startHandlers,
+  stopHandlers,
+  resetHandlers,
   reset
 }
