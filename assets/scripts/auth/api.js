@@ -3,6 +3,7 @@
 const config = require('../config')
 const store = require('../store')
 
+// USER AUTHENTICATION CALLS
 const signUp = function (data) {
   // console.log(data)
   return $.ajax({
@@ -43,9 +44,48 @@ const changePassword = function (data) {
   })
 }
 
+// POMODORO TIMER CALLS
+
+const getSessions = function () {
+  console.log('user is', store.user)
+  return $.ajax({
+    url: config.apiOrigin + '/sessions',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const addSession = function (data) {
+  console.log('addSession ran')
+  console.log('data is', data)
+  return $.ajax({
+    url: config.apiOrigin + '/sessions',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const deleteSesh = function (id) {
+  return $.ajax({
+    url: config.apiOrigin + '/sessions/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
-  changePassword
+  changePassword,
+  getSessions,
+  addSession,
+  deleteSesh
 }

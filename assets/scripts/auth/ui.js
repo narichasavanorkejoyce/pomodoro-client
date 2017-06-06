@@ -1,6 +1,7 @@
 'use strict'
 const store = require('../store.js')
 
+// USER AUTHENTICATION
 const successSignUp = (data) => {
   // console.log(data)
   $('#sign-up-response').text('Awesome! Now, please sign in.')
@@ -48,6 +49,25 @@ const signOutFail = (error) => {
   console.error(error)
 }
 
+// POMODORO TIMER
+
+const getSessionsSuccess = (data) => {
+  console.log('getSessionsSuccess ran')
+  console.log('getSessionsSuccess data is', data)
+}
+
+const getSessionsFail = (error) => {
+  console.error(error)
+}
+
+const deleteSessionSuccess = (data) => {
+  console.log('deleteSession ran')
+}
+
+const deleteSessionFail = (error) => {
+  console.error(error)
+}
+
 module.exports = {
   signOutFail,
   signInSuccess,
@@ -56,5 +76,9 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFail,
   failureSignUp,
-  successSignUp
+  successSignUp,
+  getSessionsSuccess,
+  getSessionsFail,
+  deleteSessionSuccess,
+  deleteSessionFail
 }
