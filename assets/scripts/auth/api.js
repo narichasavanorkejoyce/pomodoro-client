@@ -80,6 +80,22 @@ const deleteSesh = function (id) {
   })
 }
 
+const updateSesh = function (id, pomodoroPlusOne) {
+  console.log('updateSesh ran')
+  return $.ajax({
+    url: config.apiOrigin + '/sessions/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'session': {
+        'n_pomodoro': pomodoroPlusOne
+      }
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -87,5 +103,6 @@ module.exports = {
   changePassword,
   getSessions,
   addSession,
-  deleteSesh
+  deleteSesh,
+  updateSesh
 }
