@@ -1,6 +1,25 @@
-<div id="timer">
-<div><span id="input">25:00</span><div/>
-<input type="button" class = "btn" id="start" value="start"/>
-<input type="button" class = "btn" id="stop" value="stop"/>
-<input type="button" class = "btn" id="reset" value="reset"/>
+<div id="timer-modal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h3>Pomodoro Timer</h3>
+        <p>Focus for 25 minutes. Then, take a 5 minute break!</p>
+        <p>During the break, make sure to add a pomodoro to your session!</p>
+      </div>
+
+      <div class="modal-body">
+        <div><span id="input">25:00</span>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn start-timer">Start</button>
+        <button type="button" class="btn stop-timer">Stop</button>
+        <button type="button" class="btn reset-timer">Reset</button>
+        <button type="button" class="btn cancel-timer cls-timer-modal" data-dismiss="modal" aria-hidden="true">Cancel</button>
+      </div>
+
+    </div>
+  </div>
 </div>

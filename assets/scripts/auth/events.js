@@ -16,16 +16,14 @@ const onShowLandingPage = function () {
 const onShowHomePage = function (data) {
   console.log('onShowHomePage ran')
   uxLogic.showHomePage(data)
-  // timer.timerHandlers()
   // Navigation Bar
   $('#add-session-option').on('click', onShowAddSession)
+  $('#start-timer-option').on('click', onShowTimer)
   $('#sign-out-option').on('click', onShowSignOut)
   $('#change-pwd-option').on('click', onShowChangePassword)
   // Session Table
   $('.remove-session').on('click', deleteSession)
   $('.add-poms').on('click', updateSession)
-  // Timer
-  resetTimer()
 }
 
 // RENDER SMALLER VIEWS
@@ -47,10 +45,9 @@ const onShowChangePassword = function () {
   $('#change-password').on('submit', onChangePassword)
 }
 
-const resetTimer = function () {
-  uxLogic.showTimer()
+const onShowTimer = function () {
+  $('#timer-modal').modal({ show: true })
   timer.timerHandlers()
-  $('#reset').click(resetTimer)
 }
 
 // ACTIONS - USER AUTHENTICATION
@@ -67,7 +64,6 @@ const onSignIn = function (event) {
   const data = getFormFields(event.target)
   api.signIn(data)
   .then(ui.signInSuccess)
-  // .then(onShowHomePage)
   .then(onGetSessions)
   .catch(ui.signInFail)
 }

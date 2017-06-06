@@ -23,9 +23,32 @@ function stop () {
   clearTimeout(timer)
 }
 
+function reset () {
+  document.getElementById('input').innerHTML = '25:00'
+  clearTimeout(timer)
+  duration = 1500
+  timer = null
+}
+
 const timerHandlers = function () {
-  $('#start').click(start)
-  $('#stop').click(stop)
+  $('.start-timer').on('click', function () {
+    start()
+    // $('.start-timer').off()
+    // $('.stop-timer').on()
+    // $('.reset-timer').on()
+  })
+  $('.stop-timer').on('click', function () {
+    stop()
+    // $('.start-timer').on()
+    // $('.stop-timer').off()
+    // $('.reset-timer').on()
+  })
+  $('.reset-timer').on('click', function () {
+    reset()
+    // $('.start-timer').on()
+    // $('.stop-timer').on()
+    // $('.reset-timer').off()
+  })
 }
 
 module.exports = {
