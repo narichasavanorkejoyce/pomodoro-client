@@ -1,0 +1,25 @@
+<div class="table-container">
+  <table class="table table-responsive" style="float:right">
+    <thead class="thead-default">
+      <tr>
+        <th>Session Name</th>
+        <th>Created</th>
+        <th>Updated</th>
+        <th>Add Pomodoro</th>
+        <th>Delete Session</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each sessions as |session|}}
+        <tr data-id="{{session.id}}">
+          <td>{{session.session_name}}</td>
+          <td>{{session.created_at}}</td>
+          <td>{{session.updated_at}}</td>
+          <td><button type="button" class="add-poms btn btn-default" data-id="{{session.id}}" value={{session.n_pomodoro}}>{{session.n_pomodoro}}</button></td>
+          <td><button type="button" class="remove-session btn btn-default" data-id="{{session.id}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
