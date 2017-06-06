@@ -4,6 +4,7 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields.js')
 const uxLogic = require('../uxLogic.js')
+const timer = require('../timer.js')
 
 // RENDER MAIN VIEWS
 const onShowLandingPage = function () {
@@ -17,6 +18,7 @@ const onShowHomePage = function (data) {
   uxLogic.showHomePage(data)
   // Navigation Bar
   $('#add-session-option').on('click', onShowAddSession)
+  $('#start-timer-option').on('click', onShowTimer)
   $('#sign-out-option').on('click', onShowSignOut)
   $('#change-pwd-option').on('click', onShowChangePassword)
   // Session Table
@@ -43,6 +45,12 @@ const onShowChangePassword = function () {
   $('#change-password').on('submit', onChangePassword)
 }
 
+const onShowTimer = function () {
+  $('#timer-modal').modal({ show: true })
+  timer.timerHandlers()
+  $('.cancel-timer').on('click', cancelTimer)
+}
+
 // ACTIONS - USER AUTHENTICATION
 const onSignUp = function (event) {
   event.preventDefault()
@@ -57,7 +65,6 @@ const onSignIn = function (event) {
   const data = getFormFields(event.target)
   api.signIn(data)
   .then(ui.signInSuccess)
-  // .then(onShowHomePage)
   .then(onGetSessions)
   .catch(ui.signInFail)
 }
@@ -131,6 +138,13 @@ const updateSession = function () {
   api.updateSesh(id, pomodoroPlusOne)
     .then(onGetSessions)
     .catch(ui.updateSessionFail)
+}
+
+const cancelTimer = function () {
+  console.log('cancelTimer ran')
+  timer.reset()
+  $('body').removeClass('modal-open')
+  onGetSessions()
 }
 
 module.exports = {
