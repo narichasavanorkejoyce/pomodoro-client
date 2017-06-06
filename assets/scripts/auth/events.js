@@ -21,6 +21,7 @@ const onShowHomePage = function (data) {
   $('#change-pwd-option').on('click', onShowChangePassword)
   // Session Table
   $('.remove-session').on('click', deleteSession)
+  $('.add-poms').on('click', updateSession)
 }
 
 // RENDER SMALLER VIEWS
@@ -116,6 +117,20 @@ const deleteSession = function () {
   api.deleteSesh(id)
     .then(onGetSessions)
     .catch(ui.deleteSessionFail)
+}
+
+const updateSession = function () {
+  console.log('updateSession ran')
+  const id = $(this).attr('data-id')
+  // Need to transform string into integer
+  const nPomodoro = +$(this).attr('value')
+  const pomodoroPlusOne = nPomodoro + 1
+  console.log('update session id is', id)
+  console.log('update session data is', nPomodoro)
+  console.log('pomodoro plus one is', pomodoroPlusOne)
+  api.updateSesh(id, pomodoroPlusOne)
+    .then(onGetSessions)
+    .catch(ui.updateSessionFail)
 }
 
 module.exports = {

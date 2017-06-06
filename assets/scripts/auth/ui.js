@@ -68,6 +68,15 @@ const deleteSessionFail = (error) => {
   console.error(error)
 }
 
+const updateSessionSuccess = (data) => {
+  console.log('updateSessionSuccess ran')
+  console.log('data is', data)
+}
+
+const updateSessionFail = (error) => {
+  console.error(error)
+}
+
 module.exports = {
   signOutFail,
   signInSuccess,
@@ -80,5 +89,7 @@ module.exports = {
   getSessionsSuccess,
   getSessionsFail,
   deleteSessionSuccess,
-  deleteSessionFail
+  deleteSessionFail,
+  updateSessionSuccess,
+  updateSessionFail
 }
