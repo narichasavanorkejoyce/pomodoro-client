@@ -4,6 +4,7 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields.js')
 const uxLogic = require('../uxLogic.js')
+const timer = require('../timer.js')
 
 // RENDER MAIN VIEWS
 const onShowLandingPage = function () {
@@ -15,6 +16,7 @@ const onShowLandingPage = function () {
 const onShowHomePage = function (data) {
   console.log('onShowHomePage ran')
   uxLogic.showHomePage(data)
+  // timer.timerHandlers()
   // Navigation Bar
   $('#add-session-option').on('click', onShowAddSession)
   $('#sign-out-option').on('click', onShowSignOut)
@@ -22,6 +24,8 @@ const onShowHomePage = function (data) {
   // Session Table
   $('.remove-session').on('click', deleteSession)
   $('.add-poms').on('click', updateSession)
+  // Timer
+  resetTimer()
 }
 
 // RENDER SMALLER VIEWS
@@ -41,6 +45,12 @@ const onShowChangePassword = function () {
   $('.pass-success-message').hide()
   $('.old-password-mismatch-message').hide()
   $('#change-password').on('submit', onChangePassword)
+}
+
+const resetTimer = function () {
+  uxLogic.showTimer()
+  timer.timerHandlers()
+  $('#reset').click(resetTimer)
 }
 
 // ACTIONS - USER AUTHENTICATION
