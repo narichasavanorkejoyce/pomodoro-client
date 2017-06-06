@@ -48,6 +48,7 @@ const onShowChangePassword = function () {
 const onShowTimer = function () {
   $('#timer-modal').modal({ show: true })
   timer.timerHandlers()
+  $('.cancel-timer').on('click', cancelTimer)
 }
 
 // ACTIONS - USER AUTHENTICATION
@@ -137,6 +138,13 @@ const updateSession = function () {
   api.updateSesh(id, pomodoroPlusOne)
     .then(onGetSessions)
     .catch(ui.updateSessionFail)
+}
+
+const cancelTimer = function () {
+  console.log('cancelTimer ran')
+  timer.reset()
+  $('body').removeClass('modal-open')
+  onGetSessions()
 }
 
 module.exports = {

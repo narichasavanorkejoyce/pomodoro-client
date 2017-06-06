@@ -52,5 +52,6 @@ const timerHandlers = function () {
 }
 
 module.exports = {
-  timerHandlers
+  timerHandlers,
+  reset
 }
