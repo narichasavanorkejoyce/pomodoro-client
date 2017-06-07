@@ -1,7 +1,21 @@
 .table-container {
   display: table;
   margin: 0 auto;
-  margin-top: 90px;
+  margin-top: 95px;
   max-width: 1000px;
   min-width: 85%;
+  background-color: #f8f8f8;
+  border: 6px solid black;
+}
+
+td {
+  text-align: center;
+}
+
+th {
+  text-align: center;
+}
+
+thead {
+  font-weight: bold;
 }
