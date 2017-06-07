@@ -5,6 +5,7 @@ const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields.js')
 const uxLogic = require('../uxLogic.js')
 const timer = require('../timer.js')
+const moment = require('moment')
 
 // RENDER MAIN VIEWS
 const onShowLandingPage = function () {
@@ -47,8 +48,12 @@ const onShowChangePassword = function () {
 
 const onShowTimer = function () {
   $('#timer-modal').modal({ show: true })
-  timer.timerHandlers()
-  $('.cancel-timer').on('click', cancelTimer)
+  timer.startHandlers()
+  timer.stopHandlers()
+  timer.resetHandlers()
+  $('#reset-timer').hide()
+  $('#stop-timer').hide()
+  $('#cancel-timer').on('click', cancelTimer)
 }
 
 // ACTIONS - USER AUTHENTICATION
@@ -87,11 +92,21 @@ const onChangePassword = function (event) {
 }
 
 // ACTIONS - POMODORO TIMER
+const dateSort = (a, b) => { return a < b }
+
 const onGetSessions = function (event) {
   console.log('onGetSessions ran')
   // event.preventDefault()
   api.getSessions()
-    .then(data => {
+    .then((data) => {
+      data.sessions = data.sessions.map(session => {
+        session.session_name = session.session_name
+        session.created_at = moment(session.created_at).format('LLL')
+        session.updated_at = moment(session.updated_at).format('LLL')
+        session.n_pomodoro = session.n_pomodoro
+        return session
+      })
+      data.sessions.sort((a, b) => dateSort(a.updated_at, b.updated_at))
       onShowHomePage(data)
     })
     .catch(ui.getSessionsFail)
