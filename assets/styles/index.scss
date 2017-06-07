@@ -10,6 +10,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'timer';
 
 body {
+  // Generate background image using Unsplash Source API
   background-image: url('https://source.unsplash.com/user/nsavanorkejoyce/likes/1600x900');
   background-repeat: no-repeat;
   background-size: cover;
