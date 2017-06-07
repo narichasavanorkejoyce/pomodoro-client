@@ -11,3 +11,4 @@ require('./assets/scripts/index.js')
 require('./assets/styles/index.scss')
 
 // material design lite
+require('material-design-lite')

@@ -1,12 +1,19 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import '~material-design-lite/src/material-design-lite';
+@import '~material-design-lite/src/color-definitions';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Pacifico|Vibur');
+
 @import 'session-log';
 @import 'landing-page';
+@import 'nav-bar';
+@import 'timer';
 
 body {
-  // background-image: url('https://source.unsplash.com/user/nsavanorkejoyce/likes/1600x900');
+  background-image: url('https://source.unsplash.com/user/nsavanorkejoyce/likes/1600x900');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  font-family: 'Open Sans', sans-serif;
 }
