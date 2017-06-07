@@ -48,8 +48,12 @@ const onShowChangePassword = function () {
 
 const onShowTimer = function () {
   $('#timer-modal').modal({ show: true })
-  timer.timerHandlers()
-  $('.cancel-timer').on('click', cancelTimer)
+  timer.startHandlers()
+  timer.stopHandlers()
+  timer.resetHandlers()
+  $('#reset-timer').hide()
+  $('#stop-timer').hide()
+  $('#cancel-timer').on('click', cancelTimer)
 }
 
 // ACTIONS - USER AUTHENTICATION
