@@ -1,5 +1,6 @@
 let timer = null
 let duration = 1500
+// let duration = 10
 let minutes
 
 function tick () {
