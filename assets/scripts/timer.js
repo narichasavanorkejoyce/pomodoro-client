@@ -34,51 +34,33 @@ function reset () {
 const startHandlers = function () {
   $('#start-timer').on('click', function () {
     start()
-    $('#start-timer').off()
+    $('#start-timer').hide()
 
-    $('#stop-timer').on('click', function () {
-      stop()
-      $('#stop-timer').off()
-    })
+    $('#stop-timer').show()
 
-    $('#reset-timer').on('click', function () {
-      reset()
-      $('#reset-timer').off()
-    })
+    $('#reset-timer').show()
   })
 }
 
 const stopHandlers = function () {
   $('#stop-timer').on('click', function () {
     stop()
-    $('#stop-timer').off()
+    $('#stop-timer').hide()
 
-    $('#start-timer').on('click', function () {
-      start()
-      $('#start-timer').off()
-    })
+    $('#start-timer').show()
 
-    $('#reset-timer').on('click', function () {
-      reset()
-      $('#reset-timer').off()
-    })
+    $('#reset-timer').show()
   })
 }
 
 const resetHandlers = function () {
   $('#reset-timer').on('click', function () {
     reset()
-    $('#reset-timer').off()
+    $('#reset-timer').hide()
 
-    $('#start-timer').on('click', function () {
-      start()
-      $('#start-timer').off()
-    })
+    $('#start-timer').show()
 
-    $('#stop-timer').on('click', function () {
-      stop()
-      $('#stop-timer').off()
-    })
+    $('#stop-timer').hide()
   })
 }
 

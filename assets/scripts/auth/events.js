@@ -51,7 +51,9 @@ const onShowTimer = function () {
   timer.startHandlers()
   timer.stopHandlers()
   timer.resetHandlers()
-  $('.cancel-timer').on('click', cancelTimer)
+  $('#reset-timer').hide()
+  $('#stop-timer').hide()
+  $('#cancel-timer').on('click', cancelTimer)
 }
 
 // ACTIONS - USER AUTHENTICATION
