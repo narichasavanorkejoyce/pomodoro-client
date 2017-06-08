@@ -1,6 +1,14 @@
 # Pomodoro Time
 
-This time management app uses the [pomodoro technique] (https://en.wikipedia.org/wiki/Pomodoro_Technique) to help people get stuff done.
+This time management app uses the [pomodoro technique](https://en.wikipedia.org/wiki/Pomodoro_Technique) to help people get stuff done.
+
+![Pomodoro](http://i.imgur.com/ndAsCdF.png)
+
+## Links
+- [Pomodoro Deployed Site](https://narichasavanorkejoyce.github.io/pomodoro-client/)
+- [API Repository](https://github.com/narichasavanorkejoyce/pomodoro-api)
+- [Client Repository](https://github.com/narichasavanorkejoyce/pomodoro-client)
+- [API](https://pomodoro-lyfe.herokuapp.com/)
 
 ## User Stories
 - As a user, I want to increase my productivity by using this app.
@@ -25,9 +33,26 @@ This time management app uses the [pomodoro technique] (https://en.wikipedia.org
 
 [Modals](http://i.imgur.com/Ow7Tbjt.jpg)
 
-## Dependencies
+## Development Process
+This project was a good opportunity to practice Javascript and Ruby on Rails.
 
-Install with `npm install`.
+Ended up following the same framework
+
+## Challenges
+
+## Tech & Dependencies
+
+Install dependencies with `npm install` and `bundle install`.
+- [JS Template](https://github.com/ga-wdi-boston/browser-template)
+- Languages & Tools
+  - HTML/CSS
+  - Javascript
+  - jQuery
+  - Handlebars
+  - Ruby on Rails
+  - Bootstrap
+  - Material Design Lite
+  - [Unsplash Source](https://source.unsplash.com/)
 
 ## [License](LICENSE)
 
