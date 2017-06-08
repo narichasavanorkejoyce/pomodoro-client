@@ -1,5 +1,6 @@
 let timer = null
 let duration = 1500
+// let duration = 10
 let minutes
 
 function tick () {
@@ -13,6 +14,8 @@ function tick () {
   document.getElementById('input').innerHTML = (minutes + ':' + seconds)
   if (duration <= 0) {
     document.getElementById('input').innerHTML = "Time's Up!"
+    const audio = $('#alert-audio')
+    audio[0].play()
   }
 }
 
@@ -28,6 +31,7 @@ function reset () {
   document.getElementById('input').innerHTML = '25:00'
   clearInterval(timer)
   duration = 1500
+  // duration = 10
   timer = null
 }
 

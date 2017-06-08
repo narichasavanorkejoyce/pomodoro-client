@@ -4,12 +4,11 @@
 
       <div class="modal-header">
         <h3>Pomodoro Timer</h3>
-        <p>Focus for 25 minutes. Then, take a 5 minute break!</p>
+        <p>Focus for 25 minutes. Then, take five - you've earned it.</p>
         <p>During the break, add a pomodoro to your session!</p>
-      </div>
-
-      <div class="modal-body">
-        <div><span id="input">25:00</span>
+<br>
+        <div id="timer-clock">
+          <span id="input">25:00</span>
         </div>
       </div>
 
@@ -17,11 +16,11 @@
         <div class="timer-buttons">
           <button type="button" class="btn btn-success" id="start-timer">Start</button>
           <button type="button" class="btn btn-danger" id="stop-timer">Stop</button>
-          <button type="button" class="btn btn-warning" id="reset-timer">Reset</button>
+          <button type="button" class="btn btn-primary" id="reset-timer">Reset</button>
         </div>
-        <button type="button" class="btn btn-primary cls-timer-modal" id="cancel-timer" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button type="button" class="btn cls-timer-modal" id="cancel-timer" data-dismiss="modal" aria-hidden="true">Cancel</button>
       </div>
-
+      <audio id="alert-audio" src="assets/scripts/audio/bell-ring.wav"></audio>
     </div>
   </div>
 </div>
