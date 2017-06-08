@@ -1,3 +1,15 @@
+<div class=" jumbotron welcome-message">
+  <h3>
+    Welcome to <strong><span class="welcome-title">Pomodoro</span></strong>!
+  </h3>
+  <p class="welcome-body">
+    The <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank">Pomodoro Technique</a> helps improve focus and increase productivity. Add a session, start the timer, and work for 25 minutes.
+  </p>
+  <p class="welcome-body">
+    Then, take a 5 minute break! During the break, add a pomodoro to the table and record your progress.
+  </p>
+</div>
+
 <div class="table-container">
   <table class="table table-responsive" style="float:right">
     <thead class="thead-default">
@@ -5,7 +17,7 @@
         <th>Session Name</th>
         <th>Created At</th>
         <th>Updated At</th>
-        <th>Add A Pomodoro</th>
+        <th>Add a Pomodoro</th>
         <th>Delete Session</th>
       </tr>
     </thead>
@@ -16,7 +28,7 @@
           <td>{{session.session_name}}</td>
           <td>{{session.created_at}}</td>
           <td>{{session.updated_at}}</td>
-          <td><button type="button" class="add-poms btn btn-default" data-id="{{session.id}}" value={{session.n_pomodoro}}>{{session.n_pomodoro}}</button></td>
+          <td><button type="button" class="add-poms btn btn-primary" data-id="{{session.id}}" value={{session.n_pomodoro}}>{{session.n_pomodoro}}</button></td>
           <td><button type="button" class="remove-session btn btn-default" data-id="{{session.id}}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
         </tr>
       {{/each}}
