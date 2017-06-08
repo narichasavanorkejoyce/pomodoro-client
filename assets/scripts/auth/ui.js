@@ -10,7 +10,7 @@ const successSignUp = (data) => {
 
 const failureSignUp = () => {
   // console.error(error)
-  $('#sign-up-response').text('Sorry, there was a problem. Please try again.')
+  $('#sign-up-response').text('Sorry, user already exists.')
 }
 
 const signInSuccess = (data) => {
