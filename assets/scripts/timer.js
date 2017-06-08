@@ -4,7 +4,7 @@ let duration = 1500
 let minutes
 
 function tick () {
-  console.log('tick ran')
+  // console.log('tick ran')
   // Decrease duration by increment of 1
   --duration
   // Format duration into minutes and seconds

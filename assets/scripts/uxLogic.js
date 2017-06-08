@@ -8,7 +8,7 @@ const showLandingPage = function () {
 }
 
 const showHomePage = function (data) {
-  console.log('showHomePage ran')
+  // console.log('showHomePage ran')
   $('.body-content').empty()
   $('.body-content').append(HomePageHB(
     {

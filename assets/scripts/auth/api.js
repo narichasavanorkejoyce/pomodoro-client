@@ -5,7 +5,7 @@ const store = require('../store')
 
 // USER AUTHENTICATION CALLS
 const signUp = function (data) {
-  // console.log(data)
+  // // console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/sign-up/',
     method: 'POST',
@@ -14,7 +14,7 @@ const signUp = function (data) {
 }
 
 const signIn = function (data) {
-  // console.log(data)
+  // // console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/sign-in/',
     method: 'POST',
@@ -23,7 +23,7 @@ const signIn = function (data) {
 }
 
 const signOut = function () {
-  // console.log(store.user.id)
+  // // console.log(store.user.id)
   return $.ajax({
     method: 'DELETE',
     url: config.apiOrigin + '/sign-out/' + store.user.id,
@@ -47,7 +47,7 @@ const changePassword = function (data) {
 // POMODORO TIMER CALLS
 
 const getSessions = function () {
-  console.log('user is', store.user)
+  // console.log('user is', store.user)
   return $.ajax({
     url: config.apiOrigin + '/sessions',
     method: 'GET',
@@ -58,8 +58,8 @@ const getSessions = function () {
 }
 
 const addSession = function (data) {
-  console.log('addSession ran')
-  console.log('data is', data)
+  // console.log('addSession ran')
+  // console.log('data is', data)
   return $.ajax({
     url: config.apiOrigin + '/sessions',
     method: 'POST',
@@ -81,7 +81,7 @@ const deleteSesh = function (id) {
 }
 
 const updateSesh = function (id, pomodoroPlusOne) {
-  console.log('updateSesh ran')
+  // console.log('updateSesh ran')
   return $.ajax({
     url: config.apiOrigin + '/sessions/' + id,
     method: 'PATCH',
