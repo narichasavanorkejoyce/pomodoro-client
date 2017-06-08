@@ -15,7 +15,7 @@ const onShowLandingPage = function () {
 }
 
 const onShowHomePage = function (data) {
-  console.log('onShowHomePage ran')
+  // console.log('onShowHomePage ran')
   uxLogic.showHomePage(data)
   // Navigation Bar
   $('#add-session-option').on('click', onShowAddSession)
@@ -95,7 +95,7 @@ const onChangePassword = function (event) {
 const dateSort = (a, b) => { return a < b }
 
 const onGetSessions = function (event) {
-  console.log('onGetSessions ran')
+  // console.log('onGetSessions ran')
   // event.preventDefault()
   api.getSessions()
     .then((data) => {
@@ -114,9 +114,9 @@ const onGetSessions = function (event) {
 
 const addNewSession = function (event) {
   event.preventDefault()
-  console.log('addNewSession ran')
+  // console.log('addNewSession ran')
   const data = getFormFields(event.target)
-  console.log('addNewSession data is ', data)
+  // console.log('addNewSession data is ', data)
   api.addSession(data)
     .then(onGetSessions)
     .then(() => {
@@ -126,37 +126,37 @@ const addNewSession = function (event) {
 }
 
 const cancelNewSession = function () {
-  console.log('cancelNewSession ran')
+  // console.log('cancelNewSession ran')
   $('#add-session')[0].reset()
   $('body').removeClass('modal-open')
   onGetSessions()
 }
 
 const deleteSession = function () {
-  console.log('deleteSession ran')
+  // console.log('deleteSession ran')
   const id = $(this).attr('data-id')
-  console.log('session id is', id)
+  // console.log('session id is', id)
   api.deleteSesh(id)
     .then(onGetSessions)
     .catch(ui.deleteSessionFail)
 }
 
 const updateSession = function () {
-  console.log('updateSession ran')
+  // console.log('updateSession ran')
   const id = $(this).attr('data-id')
   // Need to transform string into integer
   const nPomodoro = +$(this).attr('value')
   const pomodoroPlusOne = nPomodoro + 1
-  console.log('update session id is', id)
-  console.log('update session data is', nPomodoro)
-  console.log('pomodoro plus one is', pomodoroPlusOne)
+  // console.log('update session id is', id)
+  // console.log('update session data is', nPomodoro)
+  // console.log('pomodoro plus one is', pomodoroPlusOne)
   api.updateSesh(id, pomodoroPlusOne)
     .then(onGetSessions)
     .catch(ui.updateSessionFail)
 }
 
 const cancelTimer = function () {
-  console.log('cancelTimer ran')
+  // console.log('cancelTimer ran')
   timer.reset()
   $('body').removeClass('modal-open')
   onGetSessions()

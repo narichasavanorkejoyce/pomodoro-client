@@ -1,10 +1,10 @@
 let timer = null
-// let duration = 1500
-let duration = 10
+let duration = 1500
+// let duration = 10
 let minutes
 
 function tick () {
-  console.log('tick ran')
+  // console.log('tick ran')
   // Decrease duration by increment of 1
   --duration
   // Format duration into minutes and seconds
@@ -30,8 +30,8 @@ function stop () {
 function reset () {
   document.getElementById('input').innerHTML = '25:00'
   clearInterval(timer)
-  // duration = 1500
-  duration = 10
+  duration = 1500
+  // duration = 10
   timer = null
 }
 
